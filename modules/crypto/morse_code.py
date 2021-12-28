@@ -25,17 +25,6 @@ morse = {
     ,'X': '-..-'
     ,'Y': '-.--'
     ,'Z': '--..'
-    ,'Ą': '.-.-'
-    ,'Ć': '-.-..'
-    ,'Ę': '..-..'
-    ,'É': '..-..'
-    ,'CH': '----'
-    ,'Ł': '.-..-'
-    ,'Ń': '--.--'
-    ,'Ó': '---.'
-    ,'Ś': '...-...'
-    ,'Ż': '--..-.'
-    ,'Ź': '--.-'
     ,'1': '.----'
     ,'2': '..---'
     ,'3': '...--'
@@ -62,14 +51,20 @@ morse = {
     ,')': '-.--.-'
     ,'=': '_..._'
     ,'@': '.--.-.'
+    ,'&': '.-...'
+    ,'¿': '..-.-'
+    ,'¡': '--...-'
+    ,'$': '...-..-'
+    ,' ': '/'
 }
+not_found_character = '#'
 
 
 def __find_letter_from_morse(morse_letter):
     for key, value in morse.items():
         if value == morse_letter:
             return key
-    return ''
+    return morse_letter
 
 
 def decrypt(text_to_decrypt):
@@ -84,10 +79,14 @@ def decrypt(text_to_decrypt):
 
 def encrypt(text_to_encrypt):
     output_array = []
-    list_of_chars = list(text_to_encrypt)
+    list_of_chars = list(text_to_encrypt.upper())
 
     for letter in list_of_chars:
-        output_array.append(morse[letter])
+        if letter in morse:
+            output_array.append(morse[letter])
+        else:
+            output_array.append(not_found_character)
+
         output_array.append(' ')
 
-    return ''.join(output_array)
+    return ''.join(output_array).strip()
