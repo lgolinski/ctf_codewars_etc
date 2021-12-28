@@ -18,7 +18,7 @@ class Rot13TestCase(unittest.TestCase):
 
         act = rot_13_crypto.decrypt(given_text)
 
-        self.assertEqual(act, expected)
+        self.assertEqual(expected, act)
 
     def test_rot13_decrypt_should_work_for_upper_and_lower_chars(self):
         """Decrypt method for given lowercase should return letter in lower,
@@ -28,7 +28,7 @@ class Rot13TestCase(unittest.TestCase):
 
         act = rot_13_crypto.decrypt(given_text)
 
-        self.assertEqual(act, expected)
+        self.assertEqual(expected, act)
 
     def test_rot13_decrypt_same_value_for_non_alphabetic_characters(self):
         """Decrypt method should return same character if given char is not alphabetic
@@ -49,7 +49,7 @@ class Rot13TestCase(unittest.TestCase):
 
         act = rot_13_crypto.decrypt(given_text)
 
-        self.assertEqual(act, expected)
+        self.assertEqual(expected, act)
 
     def test_rot13_encrypt_should_move_characters(self):
         """Encrypt method should move given characters 13 positions (should work with both directions)"""
@@ -58,7 +58,7 @@ class Rot13TestCase(unittest.TestCase):
 
         act = rot_13_crypto.encrypt(given_text)
 
-        self.assertEqual(act, expected)
+        self.assertEqual(expected, act)
 
     def test_rot13_encrypt_should_work_for_upper_and_lower_chars(self):
         """Encrypt method for given lowercase should return letter in lower,
@@ -80,7 +80,7 @@ class Rot13TestCase(unittest.TestCase):
 
         act = rot_13_crypto.encrypt(given_text)
 
-        self.assertEqual(act, expected)
+        self.assertEqual(expected, act)
 
     def test_rot13_encrypt_contains_spaces(self):
         """Encrypt method should leave not changed space character if text contains spaces"""
@@ -89,7 +89,7 @@ class Rot13TestCase(unittest.TestCase):
 
         act = rot_13_crypto.encrypt(given_text)
 
-        self.assertEqual(act, expected)
+        self.assertEqual(expected, act)
 
 
 if __name__ == "__main__":
