@@ -1,12 +1,12 @@
-letters = {
+letters: dict[int, chr] = {
     1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: "h", 9: 'i', 10: 'j',
     11: 'k', 12: 'l', 13: 'm', 14: 'n', 15: 'o', 16: 'p', 17: 'q', 18: 'r', 19: 's', 20: 't',
     21: 'u', 22: 'v', 23: 'w', 24: 'x', 25: 'y', 26: 'z'
 }
-move_length = 13
+move_length: int = 13
 
 
-def __find_letter_index(lett):
+def __find_letter_index(lett: chr) -> int:
     for ind, letter in letters.items():
         if letter == lett:
             return ind
@@ -14,7 +14,7 @@ def __find_letter_index(lett):
     return 0
 
 
-def __rotate_character(lett):
+def __rotate_character(lett: chr) -> chr:
     inx = __find_letter_index(lett.lower())
     if inx == 0:
         return lett
@@ -27,7 +27,7 @@ def __rotate_character(lett):
     return letters[new_ind] if lett.isupper() is False else letters[new_ind].upper()
 
 
-def __transform_text(text):
+def __transform_text(text: str) -> str:
     list_of_chars = list(text)
     output_chars = []
 
@@ -38,9 +38,9 @@ def __transform_text(text):
     return ''.join(output_chars)
 
 
-def decrypt(encrypted_text):
+def decrypt(encrypted_text: str) -> str:
     return __transform_text(encrypted_text)
 
 
-def encrypt(text_to_encrypt):
+def encrypt(text_to_encrypt: str) -> str:
     return __transform_text(text_to_encrypt)
